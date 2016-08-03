@@ -180,10 +180,10 @@ public class CompletableFutureBasics {
         );
         final Optional<Integer> optFirstCodePointOfFirstName1 =
                 optPerson
-                        .map()
-                        .map()
-                        .map()
-                        .flatMap();
+                        .map(Person::getFirstName)
+                        .map(CharSequence::codePoints)
+                        .map(ch -> Integer.valueOf(String.valueOf(ch)))
+                        .flatMap(number -> number);
 
         assertEquals(Integer.valueOf(65), optFirstCodePointOfFirstName.get());
 
