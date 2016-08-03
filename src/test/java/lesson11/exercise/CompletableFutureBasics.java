@@ -173,26 +173,29 @@ public class CompletableFutureBasics {
 
         // TODO Using flatMap and .getFirstName().codePoints().mapToObj(p -> p).findFirst()
         // TODO get the first letter of first name if any
-        final Optional<Integer> optFirstCodePointOfFirstName =
-                null;
+        final Optional<Integer> optFirstCodePointOfFirstName = optPerson.flatMap(op -> op.getFirstName()
+                .codePoints()
+                .mapToObj(p -> p)
+                .findFirst()
+        );
 
         assertEquals(Integer.valueOf(65), optFirstCodePointOfFirstName.get());
 
         // TODO Create stream with a single element
-        final Stream<Person> streamPerson = null;
-
-        // TODO Using flatMapToInt and .getFirstName().codePoints() get codepoints stream from streamPerson
-        final IntStream codePoints = null;
-
-        final int[] codePointsArray = codePoints.toArray();
-        assertEquals(person.getFirstName(), new String(codePointsArray, 0, codePointsArray.length));
-
-        // TODO Create completed CompletableFuture
-        final CompletableFuture<Person> futurePerson = null;
-
-        // TODO Get CompletableFuture<Employee> from futurePerson using getKeyByPerson and employeeDb
-        final CompletableFuture<Employee> futureEmployee = null;
-
-        assertEquals(person, futureEmployee.thenApply(Employee::getPerson).get());
+//        final Stream<Person> streamPerson = Stream.of(person);
+//
+//        // TODO Using flatMapToInt and .getFirstName().codePoints() get codepoints stream from streamPerson
+//        final IntStream codePoints = null;
+//
+//        final int[] codePointsArray = codePoints.toArray();
+//        assertEquals(person.getFirstName(), new String(codePointsArray, 0, codePointsArray.length));
+//
+//        // TODO Create completed CompletableFuture
+//        final CompletableFuture<Person> futurePerson = CompletableFuture.completedFuture(person);
+//
+//        // TODO Get CompletableFuture<Employee> from futurePerson using getKeyByPerson and employeeDb
+//        final CompletableFuture<Employee> futureEmployee = null;
+//
+//        assertEquals(person, futureEmployee.thenApply(Employee::getPerson).get());
     }
 }
