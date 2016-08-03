@@ -178,6 +178,12 @@ public class CompletableFutureBasics {
                 .mapToObj(p -> p)
                 .findFirst()
         );
+        final Optional<Integer> optFirstCodePointOfFirstName1 =
+                optPerson
+                        .map()
+                        .map()
+                        .map()
+                        .flatMap();
 
         assertEquals(Integer.valueOf(65), optFirstCodePointOfFirstName.get());
 
